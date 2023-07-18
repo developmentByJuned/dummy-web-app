@@ -63,9 +63,9 @@ function Navbar() {
       <nav
         className={`menu sm:hidden ${
           menuOpen
-            ? "block absolute h-[88%] left-0 w-screen bg-black"
+            ? "block absolute h-[90vh] left-0 w-screen bg-black"
             : "hidden"
-        } py-2 flex flex-col justify-center`}
+        } flex flex-col justify-center`}
       >
         {NAV_ITEMS.map((item) => (
           <a

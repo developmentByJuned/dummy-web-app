@@ -11,13 +11,13 @@ interface IAccordionProps {
   /**
    * The data representing the information to be displayed in the accordion.
    */
-  accordionInfo: IAccordionListData;
+  accordionInfo: IAccordionListData
 
   /**
    * Callback function triggered when the accordion is clicked.
    * @param dataId - The unique identifier of the clicked accordion item.
    */
-  onAccordionClickAction: (dataId: number) => void;
+  onAccordionClickAction: (dataId: number) => void
 }
 
 /**
@@ -40,7 +40,11 @@ function Accordion({ accordionInfo, onAccordionClickAction }: IAccordionProps) {
     <div className="flex flex-col relative">
       <button
         onClick={handleAccordionClickAction}
-        className="w-full flex items-center justify-between py-1 px-2 lg:px-56 bg-gradient-to-r from-purple-500 to-green-400 z-10"
+        className={`w-full flex items-center justify-between py-1 px-2 lg:px-56 ${
+          accordionInfo.isOpen
+            ? "bg-gradient-to-r from-purple-500 to-green-400"
+            : ""
+        } z-10`}
       >
         <h2>{accordionInfo.title.toUpperCase()}</h2>
         {accordionInfo.isOpen ? (
@@ -72,4 +76,4 @@ function Accordion({ accordionInfo, onAccordionClickAction }: IAccordionProps) {
   )
 }
 
-export default Accordion;
+export default Accordion

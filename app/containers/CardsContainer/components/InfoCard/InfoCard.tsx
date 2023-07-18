@@ -28,7 +28,7 @@ function InfoCard({ cardInfo }: IInfoCardProps) {
   let containerClass =
     cardInfo.cardImageDirection === "left"
       ? "flex-col lg:max-w-xl lg:flex-row ml-auto"
-      : "w-80 flex-col"
+      : "w-full md:w-80 flex-col"
 
   return (
     <div className={`flex gap-4 ${containerClass}`}>
