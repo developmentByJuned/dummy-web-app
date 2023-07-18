@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dummy Web App
 
-## Getting Started
+![Project Banner](./banner/banner1.png)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The Dummy Web App was generated using the latest Next.js version at the time of creation, which is version 13. This app incorporates a well-organized folder structure and reusable components, offering different ways to handle various UI scenarios.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project follows the best practices and leverages Tailwind CSS for all its stylings. While creating the project, utmost care has been taken to adhere to the standards set by the community. However, there is always room for improvement in the code, and future contributions are welcome to make it even better.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project also takes full advantage of the latest features of Next.js, including new ways of routing, handling server-side and client-side components, and more. All components are designed to be easily connected with APIs, allowing for seamless integration or any other necessary changes through dynamically coded components.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## GitHub Tags
 
-## Learn More
+- :package: Next.js
+- :art: Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+## Figma Design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+***[Please refer this link for the Figma UI design](https://www.figma.com/file/mDcukj2nHsYU2AQNuiG5ad/Build-Test?node-id=0%3A1&mode=dev)***
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Steps to Run the Project
 
-## Deploy on Vercel
+Follow these steps to get the Dummy Web App up and running:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository using the following GitHub link:
+   **[LINK FOR THE PROJECT](https://github.com/developmentByJuned/dummy-web-app)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Install the dependencies for the Next.js app by running the following command in your terminal:
+
+  ```bash
+  npm install
+  ```
+
+3. To run the project. Run the following command:
+
+  ```bash
+  npm run dev
+  ```
+
+## Features
+
+Here are the features implemented in the project:
+
+1. **Project Setup and Configuration**
+   - Created scaffolding for the dummy Next.js app.
+   - Added support for Tailwind CSS.
+   - Integrated TypeScript support.
+   - Incorporated Eslint for code linting.
+   - Restructured the source folder to the app folder.
+   - Created a constants folder to handle app-wide constants.
+   - Fixed configuration files.
+
+2. **Asset Management**
+   - Added PNG images for the card.
+   - Included SVG icons for the card.
+   - Added images for the about container.
+   - Added a full image for the hover part of the about container.
+
+3. **Components**
+   - Added an about container blueprint.
+   - Added an accordion container blueprint.
+   - Developed a card container with a card list component and card component.
+   - Created a header component with a navbar and the web app's logo.
+   - Added a horizontal strip component.
+   - Implemented a responsive accordion component with expand and collapse actions.
+
+4. **Responsive Styling**
+   - Implemented responsiveness for various components, including the navbar and about container.
+   - Added animations using Tailwind CSS.
+   - Updated infinite scroll logic for better user experience.
+
+5. **Navigation and UI Fixes**
+   - Dynamically show page titles in the header.
+   - Introduced a title prop for unique cases in the header.
+   - Fixed the overlapping issue in the accordion using relative positioning and z-index.
+   - Added new pages for the navigation links.
+
+These changes collectively bring significant enhancements to the project, such as improved code structure, design, and user interactivity.
