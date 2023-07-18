@@ -16,10 +16,16 @@ import { PUBLIC_IMAGES } from "@/constants"
 export default function AboutContainer() {
   const [isHovered, setIsHovered] = useState(false)
 
+  /**
+   * Handles the mouse enter event on the about us section.
+   */
   const handleMouseEnter = () => {
     setIsHovered(true)
   }
 
+  /**
+   * Handles the mouse exit event on the about us section.
+   */
   const handleMouseLeave = () => {
     setIsHovered(false)
   }

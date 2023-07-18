@@ -12,6 +12,8 @@ export const PUBLIC_IMAGES = {
   shieldTick: '/assets/images/svg/shield-tick.svg',
   target: '/assets/images/svg/target-05.svg',
   userPlus: '/assets/images/svg/users-plus.svg',
+  plus: '/assets/images/svg/plus.svg',
+  minus: '/assets/images/svg/minus.svg',
   girlImage: '/assets/images/png/girl-image.png',
   boyImage: '/assets/images/png/boy-image.png',
   dummyImage: '/assets/images/png/dummy-image.png',

@@ -1,5 +1,5 @@
 import { HorizontalStrip } from "./components"
-import { LOWER_CARD_LIST_DATA, UPPER_CARD_LIST_DATA } from "./constants"
+import { ACCORDION_DATA_LIST, LOWER_CARD_LIST_DATA, UPPER_CARD_LIST_DATA } from "./constants"
 import {
   AboutContainer,
   AccordionContainer,
@@ -21,8 +21,8 @@ export default function Home() {
       <AboutContainer />
       <HorizontalStrip containerClassName="my-16" text="LOREM IPSUM" />
       <CardsContainer title="Lorem Ipsum dolor set" cardListData={LOWER_CARD_LIST_DATA}/>
-      {/* 
-      <AccordionContainer /> */}
+      
+      <AccordionContainer title="LOREM IPSUM DOLOR" accordionListData={ACCORDION_DATA_LIST} />
     </main>
   )
 }

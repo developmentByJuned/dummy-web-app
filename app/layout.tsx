@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   icons: "assets/images/svg/logo.svg"
 }
 
+// replace font family with monstreatt
 /**
  * RootLayout component is the main layout for the entire application.
  * It wraps the content with common HTML and provides a consistent structure for all pages.
