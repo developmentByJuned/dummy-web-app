@@ -1,3 +1,4 @@
+import { HorizontalStrip } from "./components"
 import { LOWER_CARD_LIST_DATA, UPPER_CARD_LIST_DATA } from "./constants"
 import {
   AboutContainer,
@@ -15,10 +16,12 @@ import {
  */
 export default function Home() {
   return (
-    <main className="flex flex-col gap-12">
+    <main className="flex flex-col">
       <CardsContainer title="Lorem Ipsum" cardListData={UPPER_CARD_LIST_DATA} />
+      <AboutContainer />
+      <HorizontalStrip containerClassName="my-16" text="LOREM IPSUM" />
       <CardsContainer title="Lorem Ipsum dolor set" cardListData={LOWER_CARD_LIST_DATA}/>
-      {/* <AboutContainer />
+      {/* 
       <AccordionContainer /> */}
     </main>
   )

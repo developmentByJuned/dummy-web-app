@@ -30,7 +30,7 @@ interface ICardsContainerProps {
 export default function CardsContainer({ title, cardListData }: ICardsContainerProps) {
   return (
     <div className="mx-2 lg:mx-56">
-      <h1 className="lg:w-2/5 font-bold text-3xl sm:text-3xl md:text-3xl lg:text-6xl">{title.toUpperCase()}</h1>
+      <h1 className="tracking-wider lg:w-1/2 font-bold text-3xl sm:text-3xl md:text-3xl lg:text-7xl">{title.toUpperCase()}</h1>
       <InfoCardList cardListData={cardListData}/>
     </div>
   );

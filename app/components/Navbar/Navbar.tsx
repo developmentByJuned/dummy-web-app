@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from "react"
 
-import { NAV_ITEMS } from '../../constants';
+import { NAV_ITEMS } from "../../constants"
 
-import { HorizontalStrip } from '../HorizontalStrip'
+import { HorizontalStrip } from "../HorizontalStrip"
 
 /**
  * Navbar component displays a navigation menu with a hamburger icon for mobile devices.
@@ -25,61 +25,71 @@ function Navbar() {
   const toggleHamburgerMenu = () => {
     setMenuOpen(!menuOpen)
   }
-  
+
+  useEffect(() => {
+    // Update the body's overflow style based on the menuOpen state
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
+
   return (
     <div>
-        <input
-          onClick={toggleHamburgerMenu}
-          type="checkbox"
-          id="menu-toggle"
-          className="hidden"
-        />
-        <label
-          htmlFor="menu-toggle"
-          className="block px-3 pb-1 cursor-pointer sm:hidden"
+      <input
+        onClick={toggleHamburgerMenu}
+        type="checkbox"
+        id="menu-toggle"
+        className="hidden"
+      />
+      <label
+        htmlFor="menu-toggle"
+        className="block px-3 pb-1 cursor-pointer sm:hidden"
+      >
+        <svg
+          id="menu-icon"
+          className="h-6 w-6"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <svg
-            id="menu-icon"
-            className="h-6 w-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          {menuOpen ? (
+            <path d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path d="M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </label>
+      <nav
+        className={`menu sm:hidden ${
+          menuOpen
+            ? "block absolute h-[88%] left-0 w-screen bg-black"
+            : "hidden"
+        } py-2 flex flex-col justify-center`}
+      >
+        {NAV_ITEMS.map((item) => (
+          <a
+            key={item.id}
+            href={item.redirectTo}
+            className={`${linkClass} ${
+              item.unavailable ? "text-gray-500" : ""
+            }`}
           >
-            {menuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </label>
-        <nav
-          className={`menu sm:hidden ${
-            menuOpen
-              ? "block absolute h-[85%] left-0 w-screen bg-black"
-              : "hidden"
-          } py-2 flex flex-col justify-center`}
-        >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.id}
-              href={item.redirectTo}
-              className={`${linkClass} ${
-                item.unavailable ? "text-gray-500" : ""
-              }`}
-            >
-              <span>{item.title}</span>
-              {item.unavailable ? <span>COMING SOON</span> : null}
-            </a>
-          ))}
-        </nav>
-        <div className="w-full sm:hidden">
-          {menuOpen ? <HorizontalStrip text="LOREM IPSUM" /> : null}
-        </div>
+            <span>{item.title}</span>
+            {item.unavailable ? <span>COMING SOON</span> : null}
+          </a>
+        ))}
+      </nav>
+      <div className="w-full sm:hidden">
+        {menuOpen ? (
+          <HorizontalStrip
+            containerClassName="absolute bottom-0 right-0"
+            text="LOREM IPSUM"
+          />
+        ) : null}
       </div>
+    </div>
   )
 }
 
-export default Navbar;
+export default Navbar

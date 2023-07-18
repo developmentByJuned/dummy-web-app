@@ -15,4 +15,6 @@ export const PUBLIC_IMAGES = {
   girlImage: '/assets/images/png/girl-image.png',
   boyImage: '/assets/images/png/boy-image.png',
   dummyImage: '/assets/images/png/dummy-image.png',
+  aboutImage: '/assets/images/png/about-image.png',
+  fullAboutImage: '/assets/images/png/full-about-image.png',
 };

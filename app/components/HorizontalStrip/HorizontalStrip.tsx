@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 /**
  * Interface for the props of the HorizontalStrip component.
@@ -10,6 +10,10 @@ interface IHorizontalStripProps {
    * The text content to be displayed in the horizontally scrolling strip.
    */
   text: string;
+  /**
+   * ClassName styling for the container of the horizontal strip.
+   */
+  containerClassName?: string;
 }
 
 /**
@@ -20,52 +24,36 @@ interface IHorizontalStripProps {
  * @param {string} props.text - The text content to be displayed in the scrolling strip.
  * @returns {JSX.Element} The JSX element representing the HorizontalStrip component.
  */
-function HorizontalStrip({ text }: IHorizontalStripProps) {
-  const stripRef = useRef<HTMLDivElement>(null)
+function HorizontalStrip({ text, containerClassName }: IHorizontalStripProps) {
+  const stripRef = useRef<HTMLDivElement>(null);
+  const [repeatedTextElements, setRepeatedTextElements] = useState<ReactNode[]>([]);
 
   useEffect(() => {
-    const stripElement = stripRef.current
-    if (!stripElement) return
+    const stripElement = stripRef.current;
+    if (!stripElement) return;
 
-    const stripWidth = stripElement.offsetWidth
-    const containerWidth = stripElement.parentElement?.offsetWidth || 0
-
-    let animationId: number
-    let scrollDistance = 0
-    
-    /**
-     * Animates the horizontal scrolling of the strip element.
-     * The strip moves from right to left in a continuous loop.
-     */
-    const animateStrip = () => {
-      animationId = requestAnimationFrame(animateStrip);
-    
-      // Move the strip left by one pixel per animation frame
-      scrollDistance--;
-    
-      // Check if the strip has moved out of view on the left
-      if (scrollDistance <= -stripWidth) {
-        // Reset the scroll distance to the right edge of the container,
-        // creating a seamless loop effect
-        scrollDistance = containerWidth;
-      }
-    
-      // Update the style of the strip element to move it horizontally
-      stripElement.style.transform = `translateX(${scrollDistance}px)`;
-    };
-
-    animateStrip()
-
-    return () => {
-      cancelAnimationFrame(animationId)
+    // Calculate the width of the strip element
+    // const width = stripElement.offsetWidth;
+    const width = text.length + 100;
+    if(stripElement.parentElement) {
+      // Calculate the number of repetitions needed to fill the container width
+      const repetitions = Math.ceil(stripElement.parentElement?.offsetWidth / width) + 1;
+      const repeatedTextElements = new Array(repetitions).fill(text).map((t, index) => (
+        <span key={index} style={{ marginLeft: index === 0 ? 0 : 20 }}>
+          {t}
+        </span>
+      ));
+      setRepeatedTextElements(repeatedTextElements);
     }
-  }, [])
+  }, [text]);
 
   return (
-    <div className="flex bg-gradient-to-r from-purple-500 to-green-400 w-full absolute bottom-0 right-0 overflow-hidden">
-      <span ref={stripRef} className="inline-block px-4 py-2 whitespace-nowrap">
-        {text}
-      </span>
+    <div
+      className={`flex bg-gradient-to-r from-purple-500 to-green-400 w-full overflow-hidden ${containerClassName}`}
+    >
+      <div ref={stripRef} className="inline-block px-4 py-2 whitespace-nowrap text-white animate-leftToRight">
+        {repeatedTextElements}
+      </div>
     </div>
   );
 }
