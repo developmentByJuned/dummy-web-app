@@ -29,34 +29,34 @@ interface INavItem {
 const NAV_ITEMS: INavItem[] = [
   {
     id: 1,
-    title: "LOREM IPSUM",
-    redirectTo: "#",
+    title: "Home",
+    redirectTo: "/",
   },
   {
     id: 2,
-    title: "LOREM IPSUM",
-    redirectTo: "#",
+    title: "Services",
+    redirectTo: "/services",
   },
   {
     id: 3,
-    title: "LOREM IPSUM",
-    redirectTo: "#",
+    title: "Career",
+    redirectTo: "/careers",
   },
   {
     id: 4,
-    title: "LOREM IPSUM",
-    redirectTo: "#",
+    title: "Blogs",
+    redirectTo: "/blogs",
   },
   {
     id: 5,
-    title: "LOREM IPSUM",
-    redirectTo: "#",
+    title: "Contact Us",
+    redirectTo: "/contact-us",
   },
   {
     id: 6,
-    title: "LOREM IPSUM",
+    title: "Products",
     unavailable: true,
-    redirectTo: "#",
+    redirectTo: "/products",
   },
 ]
 

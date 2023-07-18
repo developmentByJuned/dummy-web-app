@@ -75,7 +75,7 @@ function Navbar() {
               item.unavailable ? "text-gray-500" : ""
             }`}
           >
-            <span>{item.title}</span>
+            <span>{item.title.toUpperCase()}</span>
             {item.unavailable ? <span>COMING SOON</span> : null}
           </a>
         ))}
@@ -92,4 +92,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;

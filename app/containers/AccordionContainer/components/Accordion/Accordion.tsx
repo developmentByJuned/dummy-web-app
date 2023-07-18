@@ -37,10 +37,10 @@ function Accordion({ accordionInfo, onAccordionClickAction }: IAccordionProps) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <button
         onClick={handleAccordionClickAction}
-        className="w-screen flex items-center justify-between py-1 px-2 lg:px-56 bg-gradient-to-r from-purple-500 to-green-400"
+        className="w-full flex items-center justify-between py-1 px-2 lg:px-56 bg-gradient-to-r from-purple-500 to-green-400 z-10"
       >
         <h2>{accordionInfo.title.toUpperCase()}</h2>
         {accordionInfo.isOpen ? (

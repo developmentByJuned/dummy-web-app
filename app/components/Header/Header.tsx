@@ -1,8 +1,9 @@
 "use client"
 
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
-import { PUBLIC_IMAGES } from "@/constants";
+import { NAV_ITEMS, PUBLIC_IMAGES } from "@/constants"
 
 import { Navbar } from "../Navbar"
 
@@ -13,7 +14,7 @@ interface IHeaderProps {
   /**
    * This prop is used to show dynamic title for different pages.
    */
-  title: string;
+  title?: string
 }
 
 /**
@@ -21,6 +22,11 @@ interface IHeaderProps {
  * @returns {JSX.Element} The JSX element representing the Header component.
  */
 export default function Header({ title }: IHeaderProps) {
+  const currentRoute = usePathname()
+  const currentNavigation = NAV_ITEMS.find(
+    (item) => item.redirectTo === currentRoute
+  )
+
   return (
     <div className="flex items-center justify-between sm:px-12 px-4 py-6">
       <div className="flex">
@@ -30,9 +36,11 @@ export default function Header({ title }: IHeaderProps) {
           height={40}
           src={PUBLIC_IMAGES.logo}
         />
-        <h2 className="text-xl pl-5">{title}</h2>
+        <h2 className="text-xl pl-5">
+          {title || currentNavigation?.title?.toUpperCase()}
+        </h2>
       </div>
-      <Navbar/>
+      <Navbar />
     </div>
   )
 }

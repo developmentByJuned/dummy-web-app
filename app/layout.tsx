@@ -30,7 +30,7 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body className={`${inter.className} bg-black text-white font-mono`}>
-          <Header title='Lorem' />
+          <Header />
           {children}
         </body>
       </html>
