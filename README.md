@@ -10,8 +10,13 @@ The project follows the best practices and leverages Tailwind CSS for all its st
 
 The project also takes full advantage of the latest features of Next.js, including new ways of routing, handling server-side and client-side components, and more. All components are designed to be easily connected with APIs, allowing for seamless integration or any other necessary changes through dynamically coded components.
 
+## To visit the web app
+
+***[Please refer this link for the web app](https://dummy-web-app.vercel.app/)***
+
 ## GitHub Tags
 
+- :snowflake: React
 - :package: Next.js
 - :art: Tailwind CSS
 
